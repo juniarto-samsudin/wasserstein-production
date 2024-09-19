@@ -1,0 +1,2 @@
+To override the default settings, see help:
+    python client.py --help

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wassersteinapp:
+    build: .
+    image: wassersteinapp
+    shm_size: 2gb
+    volumes:
+      - ./logs:/app/logs
+      - /media/samsudinj/e8b48f3d-3419-4a04-a2e9-dcb3169520151/WORK/Wasserstein/OCT/OCT1:/app/dataset
+      - /media/samsudinj/e8b48f3d-3419-4a04-a2e9-dcb3169520151/WORK/Wasserstein/OCT/test:/app/reference
+    environment:
+      - TZ=Asia/Singapore
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
