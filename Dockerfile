@@ -17,13 +17,14 @@ RUN pip install --upgrade pip && pip install pipenv
 WORKDIR /app 
 
 # Copy the current directory contents into the container at /app
-COPY . /app
+#COPY . /app
 
 # Copy the Pipfile and Pipfile.lock first, to ensure that Docker will cache this step if dependencies don’t change
-#COPY ../Pipfile ../Pipfile.lock /app/
+COPY Pipfile Pipfile.lock /app/
 
 # Install the dependencies
 RUN pipenv install --deploy --system
 
+COPY . /app
 
 CMD ["python", "./client/client.py", "--datasetpath", "/app/dataset", "--referencepath", "/app/reference", "--dataset", "OCT"]
