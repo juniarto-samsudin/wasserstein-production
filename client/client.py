@@ -26,6 +26,8 @@ import argparse
 import logging
 import importlib
 
+np.random.seed(42)
+
 # Get the script's filename without the extension
 script_name = os.path.splitext(os.path.basename(__file__))[0]
 
@@ -586,8 +588,8 @@ if args.dataset == 'OCT':
     testset = oct_datasetreader.OCTDataset(args.referencepath)#use default transform defined in OCTDataset
 
 
-trainloader = DataLoader(trainset, batch_size=32, shuffle=True)
-testloader = DataLoader(testset, batch_size=32, shuffle=True)
+trainloader = DataLoader(trainset, batch_size=32, shuffle=False)
+testloader = DataLoader(testset, batch_size=32, shuffle=False)
 
 df_train = dataloader_to_df(trainloader)[:1000]
 df_test = dataloader_to_df(testloader)[:1000]
