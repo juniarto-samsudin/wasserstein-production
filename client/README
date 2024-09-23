@@ -1,2 +1,6 @@
+Create environment:
+    pipenv install
+To run:
+    pipenv run python client/client.py
 To override the default settings, see help:
-    python client.py --help
+    python client/client.py --help
